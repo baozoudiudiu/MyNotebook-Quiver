@@ -1,0 +1,13 @@
+{
+  "title": "Linux 服务器搭建git仓库 (基础篇)",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "* 安装git\n```\n\nyum install -y git\n//或者:\nyum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel\n\nyum install git\n```\n* 创建一个用户组 (这里取名为git)\n```\ngroupadd git\n```\n* 为用户组添加一个用户 (这里取名为git)\n```\nuseradd git -g git\n```\n* 设置用户的密码\n```\npasswd git\n```\n* 创建证书登录\n```\n$ cd /home/git/\n$ mkdir .ssh\n$ chmod 755 .ssh\n$ touch .ssh/authorized_keys\n$ chmod 644 .ssh/authorized_keys\n```\n* 开始创建一个文件夹作为仓库 (这里在home目录下创建了一个iOS文件夹)\n```\n$ cd /home\n$ mkdir iOS\n$ chown git:git iOS/\n$ cd iOS\n```\n* 创建一个库 \n```\ngit init --bare test1.git\ngit init --bare test2.git\n```\n* 修改仓库所属用户\n```\nchown -R git:git test1.git\nchown -R git:git test2.git\n```\n* 客户端,直接clone项目就可以了\n```\n$ git clone git@192.168.45.4:/home/iOS/test1.git\n$ git clone git@192.168.45.4:/home/iOS/test2.git\n```\n* 当然你还差了一步,服务器端需要配置ssh秘钥,否则是clone不下来的\n```\n将公钥写入到上文中提到的authorized_keys文件中即可.多个秘钥换行即可.\n如果不设置ssh秘钥,会提示你输入密码,密码是上面你设置的密码.\n(如:git@192.168.45.4:/home/iOS/test1.git @符号前的git就是用户,输入其对应的密码即可.\n比如我创建了一个账号为chenwang, 那么地址应该写成chenwang@192.168.45.4:/home/iOS.test1.git,那么密码即为chenwang这个用户的密码)\n个人还是推荐使用ssh,简单粗暴.\n```"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

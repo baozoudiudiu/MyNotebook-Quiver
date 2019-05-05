@@ -1,0 +1,17 @@
+{
+  "title": "linux远程服务器文件交互",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "1. 上传本地文件到远程服务器\n```\n// method 1\nput 本地文件路径 远程主机路径\n\n// method 2\n//scp【本地文件的路径】【服务器用户名】@【服务器地址】：【服务器上存放文件的路径】\nscp /Users/mac_pc/Desktop/test.png root@192.168.1.1:/root\n```\n2. 将服务器上的文件传输到本地\n```\n// scp 【服务器用户名】@【服务器地址】：【服务器上存放文件的路径】【本地文件的路径】\nscp root@192.168.1.1:/data/wwwroot/default/111.png /Users/mac_pc/Desktop\n```"
+    },
+    {
+      "type": "text",
+      "data": ""
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}
