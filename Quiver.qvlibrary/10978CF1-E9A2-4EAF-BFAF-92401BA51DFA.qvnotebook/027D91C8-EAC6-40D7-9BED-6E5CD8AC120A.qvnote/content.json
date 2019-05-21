@@ -1,0 +1,9 @@
+{
+  "title": "UIViewController的presenting和prented",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "控制器A和控制器B\n```\n[A presentViewController:B animated:YES completion:nil];\n```\n则\n> A.presentingViewController  为 null\n> A.presentedViewController   为 B\n> B.presentingViewController  为 A\n> B.presentedViewController   为 null"
+    }
+  ]
+}
