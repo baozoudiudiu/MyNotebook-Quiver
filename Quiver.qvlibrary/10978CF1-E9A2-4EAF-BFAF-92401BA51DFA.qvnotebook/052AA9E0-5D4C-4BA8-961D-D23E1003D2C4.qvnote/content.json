@@ -1,0 +1,9 @@
+{
+  "title": "Swift url编码 ",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "```\nvar charSet = CharacterSet.urlQueryAllowed\ncharSet.insert(charactersIn: \"#\")\npath = path.addingPercentEncoding(withAllowedCharacters: charSet)\n```"
+    }
+  ]
+}
